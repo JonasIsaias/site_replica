@@ -1,0 +1,756 @@
+body, h1, h2, h3, p, ul, li, form, input, textarea, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+
+header {
+    background: #000;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #000, #333);
+    color: #fff;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+header .logo {
+    font-size: 2em;
+    font-weight: bold;
+    color: #ff0000;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.1em;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    background-color: #ff0000;
+    color: #fff;
+}
+
+/* Menu hambúrguer */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-toggle div {
+    background-color: #fff;
+    height: 3px;
+    width: 25px;
+    margin: 5px;
+    transition: all 0.3s;
+}
+
+.menu-toggle.open div:nth-child(1) {
+    transform: rotate(45deg) translateY(8px);
+}
+
+.menu-toggle.open div:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.open div:nth-child(3) {
+    transform: rotate(-45deg) translateY(-8px);
+}
+
+nav.mobile-nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 20px;
+}
+
+nav.mobile-nav.active {
+    display: flex;
+}
+
+nav.mobile-nav ul {
+    flex-direction: column;
+    padding: 0;
+}
+
+nav.mobile-nav ul li {
+    margin: 15px 0;
+}
+
+nav.mobile-nav ul li a {
+    padding: 10px;
+}
+
+/* Adicionar um fundo semi-transparente e sombra ao menu quando rolar a página */
+header.scrolled {
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+}
+
+
+
+main {
+    padding: 20px;
+}
+
+
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* Carrossel */
+#carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.carousel-slide img {
+    width: 100%;
+    display: block;
+}
+
+button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transform: translateY(-50%);
+    z-index: 100;
+}
+
+button.prev {
+    left: 10px;
+}
+
+button.next {
+    right: 10px;
+}
+
+#hero {
+    background: url('imagensCarrosel/logo-fac1.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+    padding: 100px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+#hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+#hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+#hero p {
+    font-size: 1.2em;
+}
+
+.bnt-primary {
+    background: #ff0000;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.bnt-primary:hover {
+    background: #d90000;
+    transform: translateY(-2px);
+}
+
+
+.card {
+    background: #f4f4f4;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 8px;
+    text-align: center;
+}
+
+
+#about {
+    padding: 20px;
+}
+
+
+.post {
+    margin-bottom: 20px;
+}
+
+.post img {
+    max-width: 100%;
+    height: auto;
+}
+
+.post .video iframe {
+    width: 100%;
+    height: auto;
+    max-width: 560px;
+}
+
+
+#gallery {
+    padding: 20px;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.gallery img {
+    width: calc(33.333% - 10px);
+    height: auto;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin: 10px 0 5px;
+}
+
+input, textarea, select {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    background: #ff0000;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background: #d90000;
+    transform: translateY(-2px);
+}
+
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+footer p {
+    margin-bottom: 20px;
+    font-size: 1em;
+}
+
+.footer-socials {
+    margin-bottom: 20px;
+}
+
+.footer-socials a {
+    color: #fff;
+    font-size: 1.5em;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.footer-socials a:hover {
+    color: #ff0000;
+}
+
+.footer-socials i {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #555;
+    transition: background-color 0.3s;
+}
+
+.footer-socials i:hover {
+    background-color: #ff0000;
+}
+
+.footer-socials .fa-facebook {
+    background-color: #3b5998;
+}
+
+.footer-socials .fa-twitter {
+    background-color: #1da1f2;
+}
+
+.footer-socials .fa-instagram {
+    background-color: #e1306c;
+}
+
+.footer-socials .fa-youtube {
+    background-color: #ff0000;
+}
+
+.gallery img {
+    position: relative;
+    display: block;
+}
+
+.gallery img::after {
+    content: attr(data-caption);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+    font-size: 0.9em;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.gallery img:hover::after {
+    opacity: 1;
+}
+
+fieldset {
+    border: none;
+    margin: 10px 0;
+    padding: 0;
+}
+
+legend {
+    font-weight: bold;
+}
+
+input[type="checkbox"], input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* Destaque para "Últimos Jogos" */
+#highlights {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    max-width: 300px;
+    flex: 1 1 calc(33.333% - 40px);
+    margin: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 1em;
+    margin-bottom: 20px;
+}
+
+.btn-secondary {
+    background: #000;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.btn-secondary:hover {
+    background: #333;
+    transform: translateY(-2px);
+}
+
+/* Sobre */
+#about {
+    background: #f4f4f4;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+#about h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #ff0000;
+}
+
+#about p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#about .highlight {
+    font-weight: bold;
+    color: #ff0000;
+}
+
+#about .history {
+    background: #fff;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#about .history img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+#about .history h3 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #ff0000;
+}
+
+#about .history p {
+    font-size: 1em;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* Publicações */
+#post {
+    padding: 40px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+#post h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #ff0000;
+}
+
+.post {
+    background: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.post img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.post h3 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.post p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.post .video {
+    margin-top: 20px;
+}
+
+.post .video iframe {
+    width: 100%;
+    height: 315px;
+    border: none;
+    border-radius: 8px;
+}
+
+/* Galeria de Imagens */
+#gallery {
+    padding: 40px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+#gallery h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #ff0000;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Entre em Contato */
+#contact {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+#contact h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #ff0000;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: left;
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea,
+form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form textarea:focus,
+form select:focus {
+    border-color: #ff0000;
+    outline: none;
+}
+
+form textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+legend {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+form label input {
+    margin-right: 10px;
+}
+
+button[type="submit"] {
+    background-color: #ff0000;
+    color: #fff;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #cc0000;
+    transform: translateY(-2px);
+}
